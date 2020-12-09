@@ -2,7 +2,6 @@ package taskctx
 
 import (
 	stdcontext "context"
-	"golang.org/x/net/context"
 	"sync"
 	"time"
 )
@@ -115,7 +114,7 @@ func (t *TaskContext) waitCtx() {
 	}
 }
 
-func New(ctx context.Context) *TaskContext {
+func New(ctx stdcontext.Context) *TaskContext {
 	t := &TaskContext{
 		ctx:       ctx,
 		done:	make(chan struct{}),
